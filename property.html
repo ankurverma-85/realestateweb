@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Management - Horizon Realty</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            margin: 10px 0;
+        }
+
+        nav a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #4CAF50;
+        }
+
+        /* Page Content */
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .actions {
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-around;
+            gap: 10px;
+        }
+
+        .action-button {
+            padding: 12px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Dynamic Forms */
+        .form-container {
+            margin-top: 20px;
+            display: none;
+            justify-content: center;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-container.active {
+            display: flex;
+        }
+
+        form {
+            margin: 10px 0;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 60%;
+        }
+
+        input,
+        select {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #333;
+            border-radius: 5px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Add image styles */
+        .property-img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        /* Layout for each form + image */
+        .form-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .form-section img {
+            max-width: 150px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Property Management - Horizon Realty</h1>
+        <nav>
+            <a href="project.html">Home</a>
+            <a href="project.html">Property</a>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <div class="container">
+        <h2>Manage Your Property - Choose an Action</h2>
+        <div class="actions">
+            <button class="action-button" onclick="showForm('buy')">Buy Property</button>
+            <button class="action-button" onclick="showForm('sell')">Sell Property</button>
+            <button class="action-button" onclick="showForm('rent')">Rent Property</button>
+        </div>
+
+        <!-- Dynamic Forms with images -->
+        <div class="form-container" id="buyForm">
+            <div class="form-section">
+
+                <form>
+                    <input type="text" placeholder="Property Name" required>
+                    <input type="text" placeholder="Location" required>
+                    <input type="number" placeholder="Price ($)" required>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="form-container" id="sellForm">
+            <div class="form-section">
+               
+                <form>
+                    <input type="text" placeholder="Property Name" required>
+                    <input type="text" placeholder="Location" required>
+                    <input type="number" placeholder="Price ($)" required>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="form-container" id="rentForm">
+            <div class="form-section">
+               
+                <form>
+                    <input type="text" placeholder="Property Name" required>
+                    <input type="text" placeholder="Location" required>
+                    <input type="number" placeholder="Monthly Rent ($)" required>
+                    <select>
+                        <option value="furnished">Furnished</option>
+                        <option value="unfurnished">Unfurnished</option>
+                    </select>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showForm(action) {
+            document.getElementById('buyForm').classList.remove('active');
+            document.getElementById('sellForm').classList.remove('active');
+            document.getElementById('rentForm').classList.remove('active');
+
+            if (action === 'buy') {
+                document.getElementById('buyForm').classList.add('active');
+            } else if (action === 'sell') {
+                document.getElementById('sellForm').classList.add('active');
+            } else if (action === 'rent') {
+                document.getElementById('rentForm').classList.add('active');
+            }
+        }
+    </script>
+
+</body>
+</html>
